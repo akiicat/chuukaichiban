@@ -44,7 +44,7 @@ export default {
       episode: 1,
       seconds: 0,
       duration: 0,
-      base: "https://storage.googleapis.com/akiicat",
+      base: "https://storage.googleapis.com/chuukaichiban",
       type: "video/mp4",
       timestamps: [ // will convert second format on mounted
         "22:05", "22:05", "22:06", "22:05", "22:05", "22:05", "22:05", "22:05", "22:05", "22:05",
