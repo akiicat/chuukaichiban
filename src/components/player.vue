@@ -116,8 +116,14 @@ export default {
 
       this.episode = episode
       this.seconds = seconds
+
+      if (this.player) {
+        this.player.src = this.src
+        this.player.currentTime = this.seconds
+      }
     },
     player_play: function () {
+      this.ntp()
       this.player.play()
       this.is_playing = true
     },
@@ -154,14 +160,11 @@ export default {
     this.is_mute = (this.$cookie.get('is_mute') == "true")
     this.volume = this.$cookie.get('volume') || 0.5
 
-    // var player = document.getElementById('player');
-
-    this.ntp()
-    this.player.src = this.src
-    this.player.currentTime = this.seconds
-
     if (process.env.NODE_ENV !== "development") {
-      this.player.play()
+      this.player_play()
+    }
+    else {
+      this.player_pause()
     }
 
     this.player.onended = () => {
