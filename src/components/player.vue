@@ -169,10 +169,15 @@ export default {
   },
   created () {
     this.volume = this.$cookie.get('volume') || 0.5
-    console.log(this.$cookie.get('is_mute'))
     this.is_mute = (this.$cookie.get('is_mute') == 'true')
   },
   mounted () {
+    if (this.is_mute) {
+      this.player.volume = 0
+    }
+    else {
+      this.player.volume = this.volume
+    }
 
     if (process.env.NODE_ENV !== "development") {
       this.player_play()
