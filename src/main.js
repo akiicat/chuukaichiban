@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+// https://github.com/MatteoGabriele/vue-analytics
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, { id: process.env.GA })
+
 // https://gitlab.com/robcresswell/vue-material-design-icons
 import "icons/styles.css"
 import PlayIcon from "icons/play"
