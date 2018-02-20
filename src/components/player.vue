@@ -146,11 +146,16 @@ export default {
       this.is_mute = true
     },
     player_unmute: function () {
+      if (this.volume == 0) {
+        this.volume = 0.5
+        this.$cookie.set('volume', 0.5)
+      }
       this.player.volume = this.volume
       this.$cookie.set('is_mute', 'false')
       this.is_mute = false
     },
     on_volume_change: function (v) {
+      this.player_unmute()
       this.$cookie.set('volume', v)
       this.volume = v
       this.player.volume = v
@@ -162,9 +167,12 @@ export default {
       this.player.webkitExitFullscreen()
     },
   },
-  mounted () {
-    this.is_mute = (this.$cookie.get('is_mute') == "true")
+  created () {
     this.volume = this.$cookie.get('volume') || 0.5
+    console.log(this.$cookie.get('is_mute'))
+    this.is_mute = (this.$cookie.get('is_mute') == 'true')
+  },
+  mounted () {
 
     if (process.env.NODE_ENV !== "development") {
       this.player_play()
