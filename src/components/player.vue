@@ -29,8 +29,10 @@
           ></vue-slider>
       </div>
 
-      <span v-show="!is_fullscreen" @click="enter_fullscreen"><fullscreen fillColor="white"/></span>
-      <span v-show="is_fullscreen" @click="exit_fullscreen"><fullscreen-exit fillColor="white"/></span>
+      <div v-if="false">
+        <span v-show="!is_fullscreen" @click="enter_fullscreen"><fullscreen fillColor="white"/></span>
+        <span v-show="is_fullscreen" @click="exit_fullscreen"><fullscreen-exit fillColor="white"/></span>
+      </div>
     </div>
   </div>
 </template>
