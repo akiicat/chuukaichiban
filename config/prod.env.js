@@ -1,5 +1,4 @@
 'use strict'
 module.exports = {
-  NODE_ENV: '"production"',
-  GA: '"UA-48754260-4"',
+  NODE_ENV: '"production"'
 }
