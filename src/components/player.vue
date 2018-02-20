@@ -116,9 +116,6 @@ export default {
 
       this.episode = episode
       this.seconds = seconds
-
-      console.log(`episode: ${episode}`)
-      console.log(`seconds: ${seconds}`)
     },
     player_play: function () {
       this.player.play()
@@ -129,7 +126,6 @@ export default {
       this.is_playing = false
     },
     player_toggle: function () {
-      console.log("HI")
       (this.is_playing) ? this.player_pause() : this.player_play()
     },
     player_mute: function () {
@@ -144,6 +140,8 @@ export default {
     },
     on_volume_change: function (v) {
       this.$cookie.set('volume', v)
+      this.volume = v
+      this.player.volume = v
     },
     enter_fullscreen: function () {
       this.player.webkitEnterFullscreen()
@@ -153,7 +151,7 @@ export default {
     },
   },
   mounted () {
-    this.is_mute = this.$cookie.get('is_mute') || false
+    this.is_mute = (this.$cookie.get('is_mute') == "true")
     this.volume = this.$cookie.get('volume') || 0.5
 
     // var player = document.getElementById('player');
@@ -176,16 +174,6 @@ export default {
       this.seconds = this.player.currentTime
       this.duration = this.player.duration
     }, 1000)
-
-    var video = document.querySelector(".video-container")
-    
-    console.log(video)
-    video.onkeypress = (e) => {
-      console.log("HI")
-      if (e.keyCode == 0 || e.keyCode == 32) {
-        this.player_toggle()
-      }
-    }
   }
 }
 </script>
