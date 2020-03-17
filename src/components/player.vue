@@ -6,7 +6,7 @@
         {{ this.current_percentage }} %
       </span>
     </div>
-    <video id="player">
+    <video id="player" autoplay>
       <source :src="src" :type="type">
       Your browser does not support HTML5 video.
     </video>
