@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     src: function () {
-      let src = `https://www.twitch.tv/${this.channel}/chat`
+      let src = `https://www.twitch.tv/embed/${this.channel}/chat`
       if (this.theme == "dark") { src += "?darkpopout" }
       return src
     },
