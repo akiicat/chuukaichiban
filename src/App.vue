@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      channel: 'chuukaichiban',
+      channel: 'aaaa1379',
       height: "100%",
       width: "100%",
       theme: "dark",
